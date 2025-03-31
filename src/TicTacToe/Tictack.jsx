@@ -7,6 +7,8 @@ import cross_icon from "../assets/cross.png";
 import { ethers } from "ethers";
 import { SignProtocolClient, SpMode, EvmChains } from "@ethsign/sp-sdk";
 import { privateKeyToAccount } from "viem/accounts";
+import { IndexService } from "@ethsign/sp-sdk";
+
 
 // Load private key from environment variable
 const privateKey = import.meta.env.VITE_PRIVATE_KEY;
@@ -77,16 +79,16 @@ export const Tictack = () => {
             const res = await client.createSchema({
                 name: "Game Winner",
                 description: "Winner of the Tic Tac Toe game",
-                properties: [
+                data: [
                     {
-                      "name": "winner",
-                      "type": "string"
+                      name: "winner",
+                      type: "string",
                     },
                     {
-                      "name": "txhash",
-                      "type": "string"
-                    }
-                  ]
+                      name: "txhash",
+                      type: "string",
+                    },
+                  ],
             });
 
             if (!res || !res.schemaId || !res.txHash) {
@@ -120,17 +122,15 @@ export const Tictack = () => {
 
 
             try{
-                const attes=await client.createAttestation({
+                const attes = await client.createAttestation({
                     schemaId: res.schemaId,
                     data: {
-                        winnerValue ,
-                        txhashValue
+                      winner: winnerValue,
+                      txhash: txhashValue,
                     },
-
-                    indexingValue:winnerValue.toLowerCase(),
-                 
-                  
-                })
+          
+                    indexingValue: winnerValue.toLowerCase(),
+                  });
     
                 console.log("Attestation created:", attes);
             }
