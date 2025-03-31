@@ -1,0 +1,48 @@
+.Container {
+    text-align: center;
+    margin: auto 0px;
+}
+
+.title {
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title span {
+    color: orange;
+    padding-left: 15px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 96px); /* 3x3 grid */
+    gap: 10px;
+    margin: 20px auto;
+    padding: 20px;
+    width: max-content;
+}
+
+.boxes {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #1e1e1e;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(73, 73, 48);
+}
+
+.reset {
+    width: 200px;
+    height: 60px;
+    border: none;
+    background-color: green;
+    color: black;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: all 0.3s ease;  
+}
