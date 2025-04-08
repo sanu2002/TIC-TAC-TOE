@@ -1,0 +1,45 @@
+
+
+.leaderboard{
+    width: 1350px;
+    margin-left: -50px;
+    margin-top: 150px;
+    margin-right: -50px;
+    font-style:normal;
+    font-size: 20px;
+    overflow: hidden;
+
+
+    height: 1200px;
+    color: orange;
+    background: linear-gradient(to right, #2e3052, #2e3052);
+    border-radius: 50px;
+    padding: 20px;
+
+    
+
+  }
+
+
+  .leaderboard-header {
+    display: flex;
+    width: 100%;
+    font-weight: bold;
+    justify-content: space-between; /* Keep only one */
+    background-color: #4c4d6a;
+    color: white; /* Ensure text is visible */
+    padding: 10px 20px;
+    margin: 0 ; /* Centers it */
+    border-radius: 5px; /* Optional: Adds rounded corners */
+    border-radius: 5px;
+
+  }
+
+.row {
+    position: relative;
+    top: 50px;
+    left: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
