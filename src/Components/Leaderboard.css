@@ -1,5 +1,7 @@
 body {
-  background-color: #0d0d0d;
+  background: linear-gradient(135deg, #FFA500, #c1a1a1);
+
+
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -17,6 +19,9 @@ body {
   margin-bottom: 20px;
 }
 
+.title span{
+  color: black;
+}
 .table-container {
   overflow-x: auto;
 }
