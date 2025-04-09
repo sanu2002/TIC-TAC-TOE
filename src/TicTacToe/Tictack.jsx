@@ -38,18 +38,12 @@
            //useselector only for accessing value from store 
 
         /////////////////////////////////////////////////////
+   
 
-
-
-        const client=useSelector((state)=>state.winner.client);
         const schemaId = useSelector((state) => state.winner.schemaId);
         const attesstaion = useSelector((state) => state.winner.attestation);
         const winner = useSelector((state) => state.winner.winner);
 
-        console.log('Client from store:', client);
-        console.log('Schema ID from store:', schemaId);
-        console.log('Attestation from store:', attesstaion);
-        console.log('Winner from store:', winner);
         
         ///////////////////////////////////////////////////
            //update the state of the store 
@@ -112,7 +106,7 @@
                 console.log(privateKeyToAccount(privateKey.startsWith("0x") ? privateKey : `0x${privateKey}`),'successfully fertched ket ')
 
                 // setclient(client);
-                dispatch(setclient(JSON.stringify(client)));
+                console.log(typeof client,"type of client ")
 
 
                 
@@ -136,13 +130,12 @@
                 //     throw new Error(`Schema creation failed. Response: ${JSON.stringify(res)}`);
                 // }
 
-                console.log("Schema created:", res);
-                // setSchemaId(res.schemaId);
+                if (res && res.schemaId) {
+                    dispatch(setschemId(res.schemaId)); // ✅ Correct: use new schemaId from API response
+                  }
 
-                if(res){
-                    dispatch(setschemId(res.schemaId));
-               }
 
+              
 
                 // Save schema details to localStorage
                 // const transactionData = {
@@ -179,23 +172,20 @@
                     });
 
                     if(attes){
-                        try {
-                            dispatch(setattestation(attes.attestationId));
-
-                            
-                        } catch (error) {
-                             console.log(error)
-                            
-                        }
-
-                    }
+                        dispatch(setattestation(attes.attestationId)); // ✅ this part is correct
+                      }
+                      
 
                    
 
                     const indexservices=new IndexService('testnet');
                     const daaa=await indexservices.queryAttestationList({page:1}) ;
                     // setwinnerdetails(daaa.rows)
-                    dispatch(setwinner(JSON.stringify(daaa.rows)));
+                    console.log(typeof daaa,"type of daaa ")
+
+                    dispatch(setwinner(daaa.rows))
+
+
 
         
                     console.log("Attestation created:", attes);

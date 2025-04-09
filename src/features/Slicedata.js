@@ -2,21 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialvalue={
-        client: null,
-        schemaId: null,
-        attestation: null,
-        winner: '',
+        schemaId: 1,
+        attestation: 100,
+        winner: 'xx',
     
 }
 
 export const winnerSlice =createSlice({
 
-    name:"winner",
+    name:[],
     initialState:initialvalue,
     reducers:{
-        setclient:(state,action)=>{
-            state.client=action.payload;
-        },
+    
 
         setschemId:(state,action)=>{
             state.schemaId=action.payload;

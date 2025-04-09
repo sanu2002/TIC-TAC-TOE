@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import { Tictack } from "./TicTacToe/Tictack.jsx"; // adjust path
 
-import { Provider } from 'react-redux';
+import { Provider } from 'react-redux'
 import { Buffer } from 'buffer';
 window.Buffer = Buffer;
 
