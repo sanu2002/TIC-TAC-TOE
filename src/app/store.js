@@ -1,15 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import  winnerSlice  from '../features/Slicedata';
+import  winnerReducer  from '../features/Slicedata';
 const store=configureStore({
     reducer:{
-        winner:winnerSlice,
+        winner:winnerReducer,
     },
 
-    middleware:(getDefaultMiddleware)=>{
-        return getDefaultMiddleware({
-            serializableCheck:false,
-        })
-    }
 
 
 })

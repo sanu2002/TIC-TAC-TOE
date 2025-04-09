@@ -8,7 +8,9 @@
     import { privateKeyToAccount } from "viem/accounts";
     import { useSelector, useDispatch } from 'react-redux';
 
-    import { setclient,setschemId,setattestation,setwinner } from "../features/Slicedata";
+    import { setschemId,setattestation } from "../features/Slicedata";
+
+
 
 
   
@@ -30,9 +32,34 @@
 
 
     export const Tictack = () => {
+
+        
         const [data, setData] = useState(Array(9).fill(""));
         const [count, setCount] = useState(0);
         const [lock, setLock] = useState(false);
+
+        const [localSchemaId, setLocalSchemaId] = useState("");
+        const [localAttestationId, setLocalAttestationId] = useState("");
+        const [winner, setwinner] = useState("");
+
+
+        const dispatch = useDispatch();
+
+        useEffect(() => {
+            if (localSchemaId && typeof localSchemaId === 'string') {
+                dispatch(setschemId(localSchemaId));
+            }
+        
+            if (localAttestationId && typeof localAttestationId === 'string') {
+                dispatch(setattestation(localAttestationId));
+            }
+        
+          
+        }, [localSchemaId, localAttestationId]);
+        
+    
+
+
 
         ///////////////////////////////////////////////////
            //useselector only for accessing value from store 
@@ -40,16 +67,18 @@
         /////////////////////////////////////////////////////
    
 
-        const schemaId = useSelector((state) => state.winner.schemaId);
-        const attesstaion = useSelector((state) => state.winner.attestation);
-        const winner = useSelector((state) => state.winner.winner);
+        // const schemaId = useSelector((state) => state.winner.schemaId);
+        // const attesstaion = useSelector((state) => state.winner.attestation);
+        // const winner = useSelector((state) => state.winner.winner);
 
         
         ///////////////////////////////////////////////////
            //update the state of the store 
 
         /////////////////////////////////////////////////////
-        const dispatch = useDispatch();
+
+
+
 
 
 
@@ -124,15 +153,13 @@
                             type: "string",
                             },
                         ],
-                    });
+                });
 
                 // if (!res || !res.schemaId || !res.txHash) {
                 //     throw new Error(`Schema creation failed. Response: ${JSON.stringify(res)}`);
                 // }
 
-                if (res && res.schemaId) {
-                    dispatch(setschemId(res.schemaId)); // ✅ Correct: use new schemaId from API response
-                  }
+                setLocalSchemaId(res.schemaId);
 
 
               
@@ -171,9 +198,7 @@
                         indexingValue: winnerValue.toLowerCase(),
                     });
 
-                    if(attes){
-                        dispatch(setattestation(attes.attestationId)); // ✅ this part is correct
-                      }
+                    setLocalAttestationId(attes.attestationId);
                       
 
                    
@@ -183,7 +208,6 @@
                     // setwinnerdetails(daaa.rows)
                     console.log(typeof daaa,"type of daaa ")
 
-                    dispatch(setwinner(daaa.rows))
 
 
 

@@ -1,16 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-const initialvalue={
-        schemaId: 1,
-        attestation: 100,
-        winner: 'xx',
-    
-}
+const initialvalue = {
+    schemaId: null,
+    attestation: null,
+    winner: null,
+};
 
 export const winnerSlice =createSlice({
 
-    name:[],
+    name:"winner",
     initialState:initialvalue,
     reducers:{
     
@@ -33,6 +31,6 @@ export const winnerSlice =createSlice({
 })
 
 
-export const {setclient,setschemId,setattestation,setwinner}=winnerSlice.actions;
+export const {setschemId,setattestation,setwinner}=winnerSlice.actions;
 
 export default winnerSlice.reducer;

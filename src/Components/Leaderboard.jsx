@@ -9,11 +9,11 @@ export const Leaderboard = () => {
 
           const schemaId = useSelector((state) => state.winner.schemaId);
           const attesstaion = useSelector((state) => state.winner.attestation);
-          const winner = useSelector((state) => state.winner.winner);
+          // const winner = useSelector((state) => state.winner.winner);
 
           console.log(schemaId)
           console.log(attesstaion)
-          console.log(winner)
+          // console.log(winner)
   
 
 
@@ -30,7 +30,7 @@ export const Leaderboard = () => {
         
              <div className="leaderboard-header">
               <span>Attestation ID{schemaId}</span>
-              <span>Age</span>
+              <span>Age{attesstaion}</span>
               <span>Recipient(s)</span>
                <span>Games Played</span>
              </div>
