@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { privateKeyToAccount } from 'viem/accounts';
 import { IndexService } from '@ethsign/sp-sdk';
 import './Leaderboard.css';
+import { NavLink } from "react-router-dom";
+
 
 const privateKey = import.meta.env.VITE_PRIVATE_KEY;
 
@@ -57,6 +59,7 @@ export const Leaderboard = () => {
 
   return (
     <div className="leaderboard-container">
+      <NavLink to="/">Return⏎</NavLink>
       <h1 className="title">🎮 Off-chain Attestation Leaderboard (Arweave)</h1>
 
       {loading ? (

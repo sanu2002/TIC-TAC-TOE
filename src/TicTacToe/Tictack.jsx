@@ -12,6 +12,8 @@
 
     import { useNavigate } from "react-router";
 
+    import { NavLink } from "react-router-dom";
+
 
     // Load private key from environment variable
     const privateKey = import.meta.env.VITE_PRIVATE_KEY;
@@ -240,13 +242,19 @@
         };
 
         return (
+            <>
+            
 
 
 
             <div className="Container">
                 <h1 className="title">
-                    Tic Tac Toe Game with <span>$Sign</span>
+                    Tic Tac Toe Game with <span>$Sign</span>=><NavLink to="/leaderboard">Leaderboard</NavLink>
+                    
                 </h1>
+
+                
+                
 
                 <div className="board">
                     {[...Array(9)].map((_, index) => (
@@ -267,7 +275,7 @@
             </div>
 
 
-
+        </>
         );
     };
 
