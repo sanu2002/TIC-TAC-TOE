@@ -1,45 +1,56 @@
+body {
+  background-color: #0d0d0d;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+.leaderboard-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+}
 
-.leaderboard{
-    width: 1350px;
-    margin-left: -50px;
-    margin-top: 150px;
-    margin-right: -50px;
-    font-style:normal;
-    font-size: 20px;
-    overflow: hidden;
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
+.table-container {
+  overflow-x: auto;
+}
 
-    height: 1200px;
-    color: orange;
-    background: linear-gradient(to right, #2e3052, #2e3052);
-    border-radius: 50px;
-    padding: 20px;
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+}
 
-    
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 16px;
+  border-bottom: 1px solid #444;
+  text-align: left;
+}
 
-  }
+.leaderboard-table tbody tr:hover {
+  background-color: #2a2a2a;
+}
 
+.attester {
+  color: #ff9900;
+}
 
-  .leaderboard-header {
-    display: flex;
-    width: 100%;
-    font-weight: bold;
-    justify-content: space-between; /* Keep only one */
-    background-color: #4c4d6a;
-    color: white; /* Ensure text is visible */
-    padding: 10px 20px;
-    margin: 0 ; /* Centers it */
-    border-radius: 5px; /* Optional: Adds rounded corners */
-    border-radius: 5px;
+.recipient {
+  color: #66ccff;
+  font-family: monospace;
+}
 
-  }
+.schema-name {
+  font-weight: bold;
+}
 
-.row {
-    position: relative;
-    top: 50px;
-    left: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.schema-id {
+  font-size: 0.9em;
+  color: #888;
 }

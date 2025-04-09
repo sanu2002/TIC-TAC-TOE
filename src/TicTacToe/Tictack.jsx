@@ -10,13 +10,7 @@
 
     import { setschemId,setattestation } from "../features/Slicedata";
 
-
-
-
-  
-
-
-
+    import { useNavigate } from "react-router";
 
 
     // Load private key from environment variable
@@ -44,18 +38,15 @@
 
 
         const dispatch = useDispatch();
+          const navigate = useNavigate();
 
-        useEffect(() => {
-            if (localSchemaId && typeof localSchemaId === 'string') {
-                dispatch(setschemId(localSchemaId));
-            }
-        
-            if (localAttestationId && typeof localAttestationId === 'string') {
-                dispatch(setattestation(localAttestationId));
-            }
+
+
+          
+            
         
           
-        }, [localSchemaId, localAttestationId]);
+      
         
     
 
@@ -160,6 +151,7 @@
                 // }
 
                 setLocalSchemaId(res.schemaId);
+                console.log(res)
 
 
               
@@ -197,16 +189,11 @@
             
                         indexingValue: winnerValue.toLowerCase(),
                     });
+                    
+                    ;
 
-                    setLocalAttestationId(attes.attestationId);
-                      
+                    
 
-                   
-
-                    const indexservices=new IndexService('testnet');
-                    const daaa=await indexservices.queryAttestationList({page:1}) ;
-                    // setwinnerdetails(daaa.rows)
-                    console.log(typeof daaa,"type of daaa ")
 
 
 

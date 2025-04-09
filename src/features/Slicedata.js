@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialvalue = {
-    schemaId: null,
-    attestation: null,
+    schemaId: 0,
+    attestation: 0,
     winner: null,
 };
 
